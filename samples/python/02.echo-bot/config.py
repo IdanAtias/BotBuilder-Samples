@@ -13,4 +13,3 @@ class DefaultConfig:
     PORT = 3978
     APP_ID = os.environ.get("MicrosoftAppId", "")
     APP_PASSWORD = os.environ.get("MicrosoftAppPassword", "")
-    APP_AUTH_TENANT = "4a3c5477-cb0e-470b-aba6-13bd9debb76b"  # Silk tenant id (not a sensitive info)
