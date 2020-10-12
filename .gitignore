@@ -295,3 +295,6 @@ rush.json
 /experimental/common/config/rush
 /experimental/common/scripts
 /experimental/generation/generator/.rush
+
+# direnv
+.envrc*
