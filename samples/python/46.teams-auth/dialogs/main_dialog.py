@@ -87,8 +87,14 @@ class MainDialog(LogoutDialog):
         self, step_context: WaterfallStepContext
     ) -> DialogTurnResult:
         if step_context.result:
+            import aiohttp
+            from pprint import pformat
+            headers = {"Authorization": "Bearer " + step_context.result.token}
+            async with aiohttp.ClientSession(headers=headers) as session:
+                async with session.get("https://management.azure.com/subscriptions?api-version=2020-01-01") as r:
+                    json_body = await r.json()
             await step_context.context.send_activity(
-                f"Here is your token {step_context.result.token}"
+                f"IDAN: {pformat(json_body)}"
             )
 
         return await step_context.end_dialog()
